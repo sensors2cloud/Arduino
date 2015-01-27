@@ -1,5 +1,4 @@
-# Remote Monitorig of Multiple Arduinos by Sensors
-Remote Monitoring of Multiple Arduinos over the internet
+# Remote Monitoring of Multiple Arduinos by Sensors2Cloud
 
 Hardware:<br>
 1) one or many Arduinos<br>
