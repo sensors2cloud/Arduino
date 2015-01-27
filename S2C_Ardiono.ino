@@ -15,8 +15,7 @@
 #include <SPI.h>
 #include <Ethernet.h>
 
-byte mac[] = {  
-  0xAA, 0x00, 0x00, 0x00, 0x00, 0x03 };
+byte mac[] = {  0xAA, 0x00, 0x00, 0x00, 0x00, 0x03 }; // Add Mac Addr of your Arduino Here
 
 //Change to your server domain
 //char serverName[] = "146.148.86.197";
@@ -47,8 +46,8 @@ int totalCount = 0;
 char params[512];
 char chanBuff[65];
 //char securekey[] = "agtzfm0ybTJjbG91ZHISCxIFQWRtaW4iB2VzbGliZW4M";
-char securekey[] = "1AB!456";
-char macaddr[]   = "AA:00:00:00:00:03";
+char securekey[] = "1AB!456";           // Add your API key Here
+char macaddr[]   = "AA:00:00:00:00:03"; // Add Mac Addr of your Arduino Here. Please Follow the format
 // set this to the number of milliseconds delay
 // this is 3 seconds
 #define delayMillis 30000UL
