@@ -2,7 +2,7 @@
 Remote Monitoring of Multiple Arduinos over the internet
 
 Hardware:
-1) one or many Arduinos
+1) one or many Arduinos<br>
 2) Ethernet Shields for each Arduino
 
 Procedure:
