@@ -1,11 +1,11 @@
 # Arduino
 Remote Monitoring of Multiple Arduinos over the internet
 
-Hardware:
+Hardware:<br>
 1) one or many Arduinos<br>
 2) Ethernet Shields for each Arduino
 
-Procedure:
+Procedure:<br>
 1) Download sketch and upload to your Arduino using Arduino IDE
 2) sign-up for a Developer account. go to http://developer.sensors2cloud.com/register/
 3) login to you account using the credentials you created in previous step
