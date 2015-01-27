@@ -1,5 +1,6 @@
 /*
-   Web client sketch for IDE v1.0.1 and w5100/w5200
+   Sensors2Cloud Arduino Monitoring 
+   based on: Web client sketch for IDE v1.0.1 and w5100/w5200
    Uses POST method.
    Posted November 2012 by SurferTim
    Modified by Sensors2Cloud Inc.,
