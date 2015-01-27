@@ -11,7 +11,7 @@ Procedure:<br>
 4) from Admin console, click Device Manager<br>
 5) click add gateway then click on 'Embedded' icon<br>
 6) fill-out the MAC address of your Arduino Ethernet Shield (this number is unique)<br>
-7) Select 'Arduio' from sensor menu, click on '+' to add a sensor<br>
+7) Select 'Arduino' from sensor menu, click on '+' to add a sensor<br>
 8) fill out the name of the sensor<br>
 9) click Application Manager, Add name and description and select 'Arduino' from template menu. Add your logo (optional) and select the Adruino you want to display in the application<br>
 10) Refresh Admin console, you will see the name of your application. Click on it. you will see data updates from Arduino.<br>
