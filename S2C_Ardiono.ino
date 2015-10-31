@@ -1,6 +1,5 @@
 /*
-   Sensors2Cloud Arduino Monitoring 
-   based on: Web client sketch for IDE v1.0.1 and w5100/w5200
+   Web client sketch for IDE v1.0.1 and w5100/w5200
    Uses POST method.
    Posted November 2012 by SurferTim
    Modified by Sensors2Cloud Inc.,
@@ -16,7 +15,7 @@
 #include <SPI.h>
 #include <Ethernet.h>
 
-byte mac[] = {  0xAA, 0x00, 0x00, 0x00, 0x00, 0x03 }; // Add Mac Addr of your Arduino Here
+byte mac[] = {  0xAA, 0xFF, 0xFF, 0xFF, 0xFF, 0x03 }; // Add MAC address of your Ethernet Shield Here
 
 //Change to your server domain
 //char serverName[] = "146.148.86.197";
@@ -39,19 +38,18 @@ int analogVal3 = 0;  // variable to store the value coming from the sensor
 int analogVal4 = 0;  // variable to store the value coming from the sensor
 int analogVal5 = 0;  // variable to store the value coming from the sensor
 // change to the page on that server
-char pageName[] = "/post";
+char pageName[] = "/arduino";
 
 EthernetClient client;
 int totalCount = 0; 
 // insure params is big enough to hold your variables
 char params[512];
 char chanBuff[65];
-//char securekey[] = "agtzfm0ybTJjbG91ZHISCxIFQWRtaW4iB2VzbGliZW4M";
-char securekey[] = "1AB!456";           // Add your API key Here
-char macaddr[]   = "AA:00:00:00:00:03"; // Add Mac Addr of your Arduino Here. Please Follow the format
+char securekey[] = "";  // Obtain Secure Key from Device Manager -> Edit Gateway -> Copy Secure Key then paste here
+char macaddr[]   = "AA:FF:FF:FF:FF:03";       // Add MAC address of your Ethernet Shield Here. Please follow format FF:FF:FF:FF:FF:FF
 // set this to the number of milliseconds delay
 // this is 3 seconds
-#define delayMillis 30000UL
+#define delayMillis 10000UL
 unsigned long thisMillis = 0;
 unsigned long lastMillis = 0;
 
@@ -92,7 +90,8 @@ void loop()
       sprintf(params,"%s\"macaddr\":\"%s\"",params,macaddr);
       sprintf(params,"%s,\"uptime\":%i",params,55); 
       sprintf(params,"%s,\"sensorList\":%s",params,"[{");
-      sprintf(params,"%s\"name\":%s",params,"\"test\""); 
+      sprintf(params,"%s\"name\":%s",params,"\"TEST2\"");
+      sprintf(params,"%s,\"type\":%s",params,"\"Arduino\""); 
       sprintf(params,"%s,\"channels\":%s",params,"[");
       // AIN0 channel
       sprintf(chanBuff,"{\"name\":\"%s\",\"value\":\"%i\",\"unit\":\"%s\",\"time\":\"%i\"}","AIN0",analogVal0,"V",totalCount);
@@ -114,8 +113,7 @@ void loop()
       sprintf(params,"%s%s",params,chanBuff);     // Notice in the last channel, the %s%s without the comma at the end
       // Complete JSON
       sprintf(params,"%s%s",params,"]}]}");    
-   
-   
+      
     if(!postPage(serverName,serverPort,pageName,params)) Serial.print(F("Fail "));
     else Serial.print(F("Pass "));
     totalCount++;
@@ -129,7 +127,7 @@ void loop()
 byte postPage(char* domainBuffer,int thisPort,char* page,char* thisData)
 {
   int inChar;
-  char outBuf[64];
+  char outBuf[256];
 
   Serial.print(F("connecting..."));
 
